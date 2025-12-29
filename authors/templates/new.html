@@ -1,0 +1,17 @@
+<form action="authors/create/" method="post">
+  {% csrf_token %}
+  
+  <label>First Name</label>
+  <input id="first_name" type="text" name="first_name" value="{{ current_first_name }}">
+  
+  <label>Last Name</label>
+  <input id="last_name" type="text" name="last_name" value="{{ current_last_name }}">
+  
+  <label>Birth Date</label>
+  <input id="birth_date" type="date" name="birth_date" value="{{ current_birth_date }}">
+  
+  <label>Nationality</label>
+  <input id="nationality" type="text" name="nationality" value="{{ current_nationality }}">
+
+  <input type="submit" value="OK">
+</form>

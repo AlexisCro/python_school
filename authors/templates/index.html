@@ -1,0 +1,6 @@
+{% for author in authors %}
+  <div>
+    <h1>{{ author.full_name }}</h1>
+    <a href='/authors/{{author.id}}'>Show</a>
+  </div>
+{% endfor %}

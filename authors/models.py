@@ -17,5 +17,5 @@ class Author(models.Model):
   birth_date = models.DateField()
   nationality = models.CharField(max_length=100)
 
-  def __full_name__(self):
-    return "{first_name} {last_name}"
+  def full_name(self):
+    return f'{self.first_name} {self.last_name}'
