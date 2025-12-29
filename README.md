@@ -4,3 +4,5 @@
 - activate the env `source venv/bin/activate`
 - deactivate the env `deacivate`
 - launch server `python manage.py runserver`
+- create migration `python manage.py makemigrations`
+- run migration `python manage.py migrate`
