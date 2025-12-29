@@ -23,6 +23,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
+    path('authors/', include('authors.urls')),
 
     # Define books as root path
     path('', RedirectView.as_view(url='books/', permanent=True))
