@@ -16,6 +16,8 @@
       <div class="card w-25 m-2">
         <div class="card-body">
           <h2>{{ book.title }}</h2>
+
+          <p>Available : <span class="badge rounded-pill text-bg-primary">{{ book.disponibility_counter }}</span> / {{ book.quantity }}</p>
         </div>
 
         <div class="card-footer">

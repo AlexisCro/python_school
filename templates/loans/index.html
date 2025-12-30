@@ -19,13 +19,28 @@
 
           <p>{{ loan.loaner_name }}</p>
 
-          <p>{{ loan.should_be_returned_at }}</p>
+          <p>Should be returned at {{ loan.should_be_returned_at }}</p>
+
+          <p>State :
+            {% if loan.state == 'AVAILABLE' %}
+              <span class="badge rounded-pill text-bg-success">{{ loan.state }}</span>
+            {% elif loan.state == 'LOAN' %}
+              <span class="badge rounded-pill text-bg-warning">{{ loan.state }}</span>
+            {% else %}
+              <span class="badge rounded-pill text-bg-secondary">{{ loan.state }}</span>
+            {% endif %}
+          </p>
         </div>
 
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-around">
           <a href='/loans/{{loan.id}}'
              class="btn btn-primary">
             Show
+          </a>
+
+          <a href='/loans/return/{{loan.id}}'
+             class="btn btn-secondary">
+            Return
           </a>
         </div>
       </div>
