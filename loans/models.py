@@ -12,6 +12,7 @@ class Loan(models.Model):
   class State(models.TextChoices):
     LOAN = 'LOAN', _('Loan')
     AVAILABLE = 'AVAILABLE', _('Available')
+    ARCHIVED = 'ARCHIVED', _('Archived')
       
   comment = models.CharField(max_length=350, blank=True)
   nbr_library_card = models.CharField()

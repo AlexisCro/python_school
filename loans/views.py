@@ -28,6 +28,7 @@ def create_view(request: HttpRequest) -> HttpResponse:
 
       loan = form.save()
       loan.set_loan_time()
+      loan.save()
       book.save()
       
       return render(request, 'loans/show.html', {'loan': loan})
