@@ -10,5 +10,8 @@ class Category(models.Model):
 
   description= models.CharField(max_length=350)
 
+  def __str__(self):
+    return self.name
+
   class Meta:
     ordering = ['-name'] # Ascending sort by default

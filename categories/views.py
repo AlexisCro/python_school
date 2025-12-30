@@ -15,12 +15,11 @@ def new_view(request: HttpRequest) -> HttpResponse:
 def create_view(request: HttpRequest) -> HttpResponse:
   if request.method == "POST":
     form = Create(request.POST)
-    params = request.POST
 
     if form.is_valid():
       category = form.save()
 
-      return redirect('category', pk=category.id)
+      return redirect('category', args=[category.id])
   else:
     form = Create()
   

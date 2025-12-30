@@ -8,15 +8,15 @@ from authors.models import Author
 from categories.models import Category
 
 class Book(models.Model):
-  def validate_quantity_greater_or_equal_than_disponibility_counter(self):
-    if self.disponibility_counter > self.quantity:
-      raise ValidationError("The number of disponibility books cannot be greater than the quantity")
-
   def validate_published_year(value):
     current_year = date.today().year
 
-    if value < 1450 or value > current_year:
+    if value.year < 1450 or value.year > current_year:
       raise ValidationError(f'The year of published must be between 1450 and {current_year}')
+
+  def clean(self):
+    if self.disponibility_counter > self.quantity:
+      raise ValidationError("The number of disponibility books cannot be greater than the quantity")
 
   title = models.CharField(
     max_length=200,
@@ -46,7 +46,6 @@ class Book(models.Model):
   disponibility_counter = models.IntegerField(
     null=False,
     validators=[
-      validate_quantity_greater_or_equal_than_disponibility_counter,
       MinValueValidator(0, 'The disponibility counter cannot be less than 0')
     ],
     default=0
@@ -56,7 +55,6 @@ class Book(models.Model):
     null=False,
     default=0,
     validators=[
-      validate_quantity_greater_or_equal_than_disponibility_counter,
       MinValueValidator(0, 'The quantity cannot be less than 0')
     ]
   )

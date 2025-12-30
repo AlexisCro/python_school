@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='book',
             name='disponibility_counter',
-            field=models.IntegerField(default=0, validators=[books.models.Book.validate_quantity_greater_or_equal_than_disponibility_counter, django.core.validators.MinValueValidator(0, 'The disponibility counter cannot be less than 0')]),
+            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0, 'The disponibility counter cannot be less than 0')]),
         ),
         migrations.AddField(
             model_name='book',
@@ -54,7 +54,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='book',
             name='quantity',
-            field=models.IntegerField(default=0, validators=[books.models.Book.validate_quantity_greater_or_equal_than_disponibility_counter, django.core.validators.MinValueValidator(0, 'The quantity cannot be less than 0')]),
+            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0, 'The quantity cannot be less than 0')]),
         ),
         migrations.AlterField(
             model_name='book',

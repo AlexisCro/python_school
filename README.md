@@ -6,3 +6,4 @@
 - launch server `python manage.py runserver`
 - create migration `python manage.py makemigrations`
 - run migration `python manage.py migrate`
+- rollback a migration `python manage.py migrate nom_de_votre_app version_num_to_go`
