@@ -13,15 +13,15 @@ class Loan(models.Model):
     LOAN = 'LOAN', _('Loan')
     AVAILABLE = 'AVAILABLE', _('Available')
       
-  comment = models.CharField(max_length=350)
+  comment = models.CharField(max_length=350, blank=True)
   nbr_library_card = models.CharField()
   loaner_name = models.CharField(max_length=50)
   
   loaner_email = models.EmailField()
   
-  loaned_at=models.DateTimeField()
-  should_be_returned_at = models.DateTimeField()
-  returned_at = models.DateTimeField()
+  loaned_at=models.DateTimeField(null=True)
+  should_be_returned_at = models.DateTimeField(null=True)
+  returned_at = models.DateTimeField(null=True)
   
   state = models.CharField(
     choices=State.choices,
@@ -43,3 +43,4 @@ class Loan(models.Model):
 
   def set_loan_time(self):
     self.should_be_returned_at = timezone.now() + timedelta(days=14)
+    self.loaned_at = timezone.now()

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form
+    method="post"
+    action="{% url 'create_loan' %}"
+    class="form-container">
+    {% csrf_token %}
+
+    {% if form.errors %}
+      <ul class="error-list">
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{field.label}} : {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="content">
+      {{ form }}
+    </div>
+
+    <input type="submit" value="OK">
+  </form>
+{% endblock %}

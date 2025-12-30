@@ -25,6 +25,6 @@ def create_view(request: HttpRequest) -> HttpResponse:
   
   return render(request, 'categories/new.html', {"form": form})
 
-def show_views(request: HttpRequest, ctaegory_id: int) -> HttpResponse:
+def show_views(request: HttpRequest, category_id: int) -> HttpResponse:
   category = get_object_or_404(Category, id=category_id)
   return render(request, 'categories/category.html', {'category': category})
