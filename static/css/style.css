@@ -84,3 +84,18 @@ body {
 .errorlist {
   display: none;
 }
+
+/* Navbar */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav ul li {
+  margin-right: 1rem;
+}
