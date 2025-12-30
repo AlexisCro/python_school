@@ -31,7 +31,7 @@ class Author(models.Model):
     return f'{self.first_name} {self.last_name}'
 
   def __str__(self):
-    return self.full_name
+    return f'{self.first_name} {self.last_name}'
 
   class Meta:
     # db_table = 'books'             -> permit to custom table name

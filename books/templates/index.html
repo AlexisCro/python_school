@@ -1,0 +1,16 @@
+<h1>Books</h1>
+
+<h2>
+  <a href="new">
+    Create a new one
+  </a>
+</h2>
+
+{% for author in authors %}
+  <div style="border: 1px solid black; width: 25vw; padding: 1rem 1.2rem;">
+    <h2>{{ author.full_name }}</h2>
+
+    <a href='/authors/{{author.id}}'
+       style="border: 1px solid blueviolet; border-radius: 5px; width: 25%; display: block; background-color: blueviolet; color: white; padding: 0.5rem 0.675rem;">Show</a>
+  </div>
+{% endfor %}
