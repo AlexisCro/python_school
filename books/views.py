@@ -19,7 +19,7 @@ def create_view(request: HttpRequest) -> HttpResponse:
     if form.is_valid():
       book = form.save()
 
-      return render(request, 'books/book.html', {'book': book})
+      return render(request, 'books/show.html', {'book': book})
   else:
     form = Create()
   
