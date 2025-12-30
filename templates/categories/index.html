@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Categories</h1>
+
+  <h2>
+    <a class="d-flex" href="new">
+      Create a new one
+    </a>
+  </h2>
+
+  {% for category in collection %}
+    <div class="d-flex" style="border: 1px solid black; width: 25vw; padding: 1rem 1.2rem;">
+      <h2>{{ category.name }}</h2>
+
+      <a href='/categories/{{category.id}}'
+        style="border: 1px solid blueviolet; border-radius: 5px; width: 25%; display: block; background-color: blueviolet; color: white; padding: 0.5rem 0.675rem;">Show</a>
+    </div>
+  {% endfor %}
+{% endblock %}  

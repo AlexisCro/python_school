@@ -24,7 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
     path('authors/', include('authors.urls')),
+    path('categories/', include('categories.urls')),
+    path('loans/', include('loans.urls')),
 
     # Define books as root path
-    path('', RedirectView.as_view(url='books/', permanent=True))
+    path('', RedirectView.as_view(url='books/', permanent=False))
 ]
